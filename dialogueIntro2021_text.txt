@@ -1,0 +1,205 @@
+Dialogue systems and question answering - 
+introduction
+today: dialogue systems
+Dag Wedelin, 2020
+Teacher: Ashkan Panahi (2022)
+Partly following Jurafsky and Martin
+Also inspiration from S. Nilsson 
+lecture in dialogue systems (GU) Chatbots for arbitrary 
+conversation
+“How do you feel today?”
+Digital assistants for tasks
+“Where is the nearest grocery 
+store?”
+In practice the term chatbot 
+is used more widely
+Dia logos  “through language” 
+Early systems rule-based
+Modern systems use a 
+combination of rules and 
+ML-based techniques properties of human 
+conversation A dialogue is a 
+sequence of 
+turns
+In spoken 
+dialogue it can 
+be difﬁcult to 
+know when a 
+turn ends 
+ Speech acts
+sub-dialogue
+clarification
+dialogue structure
+(e.g. answer follows question)
+grounding Initiative in 
+conversation
+user-initiative
+system-initiative
+mixed initiative Inference and 
+implicature
+A: I am out of gas.
+B: There is a gas station round the corner. +> The gas station is open. chatbots ELIZA 
+(Weizenbaum, 
+1966)
+ ELIZA 
+(Weizenbaum, 
+1966)
+Keyword based
+Higher rank for specific keywords. Prefers 
+response based on most specific keyword
+Memory based on keyword MY PARRY (Colby 
+et al, 1971)
+Acts as a paranoid 
+person
+Includes model of 
+mental state that 
+influences the 
+conversation
+interviewer: Why are you in the hospital?
+parry: I shouldn't be here.
+interviewer: Who brought you here?
+parry: The police.
+interviewer: What trouble did you have with the 
+police?
+parry: Cops don't do their jobs.
+interviewer: What do they do instead?
+parry: Cops arrest the wrong people.
+interviewer: They arrest the right ones sometimes.
+parry: The law should get those Italian crooks.
+interviewer: Are you Italian?
+parry: My background is British, but I was born in this 
+country.
+interviewer: Do you know any Italian crooks?
+parry: I try to avoid the underworld.
+interviewer: Are you afraid of the underworld?
+parry: The maﬁa are the worst gangsters.
+interviewer: Are you connected with the maﬁa?
+parry: You know, they know me. ALICE
+(Wallace, 1995)
+modern version of ELIZA with 
+programming language AIML 
+(AI Markup Language)
+ Corpus-based 
+chatbots
+Response generation: not rules 
+but single response based on 
+user’s last turn (or two)
+Based on very large datasets of 
+real conversations
+Also possible with non-
+dialogue corpora XIAOice
+(popular Chinese 
+chatbot by Microsoft)
+ IR-based 
+chatbots
+1.Return response to most similar 
+user turn
+2. Return most similar response
+Similarity e.g. based on word 
+vector or word embedding
+Can also use information 
+about user or sentiment… ML-based encoder-
+decoder chatbot
+More advanced ML-
+techniques can be used… Microsoft TAY on T witter
+ task-based dialogue systems 
+for digital assistants END
+Dialogue system 
+architecture END
+statistical/NN-
+based we will mostly focus on 
+the text-based dialogue END
+extract meaning
+rule-based or 
+increasingly ML-
+based END
+commercial dialogue 
+managers are mostly 
+rule-based  END
+mostly template-
+based
+possibly learned from 
+delexicalized data  Natural language understanding (NLU)
+classify domain
+determine intent
+extract relevant 
+information Why dialogue management (DM)?
+Otherwise the user must give all 
+information in one statement (no 
+dialogue) Dialogue Management - finite-state based
+no ﬂexibility
+system-initiative
+works in 
+simple cases Dialogue Management - frame-based  (or form-based)
+ORIGIN CITY _____
+DESTINATION CITY _____
+DEPARTURE TIME  _____
+ARRIV AL TIME ____
+FRAME TRA VEL Dialogue Management - frame-based
+A form with empty 
+slots constrained to 
+certain possible values
+ORIGIN CITY _____
+DESTINATION CITY _____
+DEPARTURE TIME  _____
+ARRIV AL TIME ____
+To each slot you can 
+associate questions
+(and preconditions)
+Relates to a particular common 
+situation.  Words are understood 
+in relation to the mental  “frame 
+of reference”
+Subframes
+All common task-based 
+systems use frames!
+GUS (Bobrow, 1977)
+FRAME TRA VEL Control structure for 
+the dialogue is based 
+around the frame
+Multiple slots can be 
+ﬁlled in one turn
+Production rules (condition->action) to 
+move to other frames e.g. for hotel 
+booking
+Fill all slots!
+Also ask for 
+conﬁrmation, make 
+suggestion,…
+See as a planning 
+problem?
+Dialogue Management - frame-based
+ORIGIN CITY _____
+DESTINATION CITY _____
+DEPARTURE TIME  _____
+ARRIV AL TIME ____
+FRAME TRA VEL Dialogue Management - frame-based with dialog state
+A rich information 
+state beyond simple 
+form-filling
+There can be multiple 
+frames that the system 
+moves between
+Keeps different aspects separate! Dialogue state tracking
+Which slots are ﬁlled?
+Most recent turn?
+… Dialogue policy
+In principle: determine next action 
+based on entire previous dialogue
+Simpler: current state of frame and 
+last turns
+Includes conﬁrming as 
+well as rejecting possible 
+misunderstandings Can be based on rules 
+or be learned Dialogue system design
+Iterative design
+Study the user and task Simulations and prototypes 
+(wizard of Oz - human 
+pretends to be computer) ML-based useful in ASR and NLU
+Rule-based or ML-based?
+Mostly rule-based for DM 
+and NLG (maybe combine?) What is needed to 
+fundamentally go further?
+T o think about…
+What are the limitations 
+of these approaches? END
